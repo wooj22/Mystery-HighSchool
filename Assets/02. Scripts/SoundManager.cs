@@ -4,15 +4,70 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] AudioSource bgmSource;
+    [SerializeField] AudioSource sfxSource;
+    [SerializeField] List<AudioClip> bgmClip;
+    [SerializeField] List<AudioClip> sfxClipList;
+    [SerializeField] float fadeVolumeTime;
+
+    /// BGM
+    public void PlayBGM(string clipName)
     {
-        
+        AudioClip clipToPlay = sfxClipList.Find(clip => clip.name == clipName);
+        bgmSource.clip = clipToPlay;
+        bgmSource.loop = true;
+        bgmSource.volume = 0f;
+        bgmSource.Play();
+        StartCoroutine(FadeInVolume());
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StopBGM()
     {
-        
+        StartCoroutine(FadeOutVolume());
+    }
+
+    /// SFX
+    public void PlaySFX(string clipName)
+    {
+        AudioClip clipToPlay = sfxClipList.Find(clip => clip.name == clipName);
+        sfxSource.PlayOneShot(clipToPlay);
+    }
+
+    public void StopSFX()
+    {
+        sfxSource.Stop();
+    }
+
+    /// ∫º∑˝ ∆‰¿ÃµÂ¿Œ
+    private IEnumerator FadeInVolume()
+    {
+        float targetVolume = 1f;
+        float currentTime = 0f;
+
+        while (currentTime < fadeVolumeTime)
+        {
+            currentTime += Time.deltaTime;
+            bgmSource.volume = Mathf.Lerp(0f, targetVolume, currentTime / fadeVolumeTime);
+            yield return null;
+        }
+
+        bgmSource.volume = targetVolume;
+    }
+
+    /// ∫º∑˝ ∆‰¿ÃµÂæ∆øÙ
+    private IEnumerator FadeOutVolume()
+    {
+        float startVolume = bgmSource.volume;
+        float currentTime = 0f;
+
+        while (currentTime < fadeVolumeTime)
+        {
+            currentTime += Time.deltaTime;
+            bgmSource.volume = Mathf.Lerp(startVolume, 0f, currentTime / fadeVolumeTime);
+            yield return null;
+        }
+
+        bgmSource.volume = 0f;
+        bgmSource.Stop();
     }
 }
