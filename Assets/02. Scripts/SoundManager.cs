@@ -10,6 +10,21 @@ public class SoundManager : MonoBehaviour
     [SerializeField] List<AudioClip> sfxClipList;
     [SerializeField] float fadeVolumeTime;
 
+    /// ΩÃ±€≈Ê
+    public static SoundManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     /// BGM
     public void PlayBGM(string clipName)
     {
