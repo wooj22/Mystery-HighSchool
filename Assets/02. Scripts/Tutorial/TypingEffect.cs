@@ -8,7 +8,7 @@ public class TypingEffect : MonoBehaviour
     public float typingSpeed = 0.05f; // 타이핑 속도
     public float waitTime = 3.0f; // 한 줄 보여주는 시간
     private string[] lines = new string[] {
-        "24년 10월 20일 금요일, 저녁 9시경, 류가 자신의 집에서 사망한 채 발견됐다.",
+        "24년 10월 20일 금요일, 저녁 9시경, 류가 자택에서 사망한 채 발견됐다.",
         "사인은 불명이다.",
         "류는 사망 전 친구 3명과 접촉한 것으로 확인되었다.",
         "이들이 주요 용의자로 지목된다.",
