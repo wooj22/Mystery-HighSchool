@@ -4,20 +4,37 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    /// ½Ì±ÛÅæ, Don'tDestroy
+    [Header ("GameData")]
+    [SerializeField] public int playTime;
+    public float currentTime;
+
+    // ½Ì±ÛÅæ
     public static GameManager Instance { get; private set; }
 
     private void Awake()
     {
-        // ½Ì±ÛÅæ ÆÐÅÏ ±¸Çö
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); 
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
+            return;
+        }
+
+        // °ÔÀÓ Å¸ÀÌ¸Ó
+        currentTime = playTime;
+        StartCoroutine(Timer());
+    }
+
+    IEnumerator Timer()
+    {
+        while (currentTime > 0)
+        {
+            currentTime--;
+            yield return new WaitForSeconds(1f);
         }
     }
 }

@@ -5,21 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class CustomSceneManager : MonoBehaviour
 {
-    /// ΩÃ±€≈Ê
-    public static CustomSceneManager Instance { get; private set; }
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     /// æ¿ ¿Ãµø
     public void OnLoadSceneByName(string sceneName)
     {
