@@ -11,6 +11,7 @@ public class RodaLock : MonoBehaviour
         if (InvestigationManager.Instance.isGetLighter)
         {
             terget.SetActive(true);
+            InvestigationManager.Instance.CheakingRoad();
             InvestigationUIManager.Instance.setAdviceText("하루가 담배를 피우는 것을 류에게 들킨듯 하다");
         }
         else

@@ -11,6 +11,7 @@ public class LibraryLock : MonoBehaviour
         if (InvestigationManager.Instance.isGetPhone)
         {
             terget.SetActive(true);
+            InvestigationManager.Instance.CheakingLibrary();
             InvestigationUIManager.Instance.setAdviceText("류와 사쿠라가 심하게 싸우고 있는듯 하다.");
         }
         else

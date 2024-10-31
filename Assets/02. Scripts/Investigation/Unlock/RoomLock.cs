@@ -11,6 +11,7 @@ public class RoomLock : MonoBehaviour
         if (InvestigationManager.Instance.isGetBook)
         {
             terget.SetActive(true);
+            InvestigationManager.Instance.CheakingRoom();
             InvestigationUIManager.Instance.setAdviceText("류와 켄지가 싸우고있는듯 하다");
         }
         else
