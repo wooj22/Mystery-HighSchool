@@ -11,12 +11,15 @@ public class KenjiState : MonoBehaviour
         "이름 : 켄지 \n 설명 : 학교의 불량학생. 근래 피해자와 종종 같이 놀곤 한다. \n\n \'자꾸 날 공부시키려하길래 짜증나서 한대 치긴 했는데.. 아무도 모르겠지?\'",
     };
     public int currentStateNum;
+    public bool isEndSurvey;
 
     private void Start()
     {
         currentStateNum = 0;
+        isEndSurvey = false;
     }
 
+    // 캐릭터 상태 변화
     public void StateActive()
     {
         if (InvestigationManager.Instance.isGetLighter)
@@ -26,6 +29,7 @@ public class KenjiState : MonoBehaviour
         if (InvestigationManager.Instance.isCheakedRoom)
         {
             currentStateNum = 2;
+            isEndSurvey = true;
         }
         InvestigationUIManager.Instance.setCharctorText(stateTexts[currentStateNum]);
     }

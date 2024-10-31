@@ -304,7 +304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &191314117
 RectTransform:
   m_ObjectHideFlags: 0
@@ -379,6 +379,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: MainGame
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 238588052}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SFX_Button
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &191314119
@@ -470,7 +482,8 @@ MonoBehaviour:
   sfxSource: {fileID: 238588053}
   bgmClip:
   - {fileID: 0}
-  sfxClipList: []
+  sfxClipList:
+  - {fileID: 8300000, guid: 99348d26b121bdf40bca2ff30b000207, type: 3}
   fadeVolumeTime: 3
 --- !u!82 &238588053
 AudioSource:
@@ -718,6 +731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charactorDescription: {fileID: 1405346584}
   adviceText: {fileID: 1782010926}
+  backButton: {fileID: 191314116}
 --- !u!1 &312682322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,8 +1536,8 @@ GameObject:
   - component: {fileID: 1086389770}
   - component: {fileID: 1086389769}
   - component: {fileID: 1086389768}
-  - component: {fileID: 1086389772}
   - component: {fileID: 1086389771}
+  - component: {fileID: 1086389772}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -2457,6 +2471,10 @@ MonoBehaviour:
   isCheakedjLibrary: 0
   isCheakedRoom: 0
   isCheakedRoad: 0
+  SurveyState:
+  - {fileID: 6950292240372024388}
+  - {fileID: 5023109594273705300}
+  - {fileID: 7534770360831772768}
 --- !u!1 &1558514074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,8 +2565,8 @@ GameObject:
   - component: {fileID: 1629722270}
   - component: {fileID: 1629722269}
   - component: {fileID: 1629722268}
-  - component: {fileID: 1629722272}
   - component: {fileID: 1629722271}
+  - component: {fileID: 1629722272}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -3393,6 +3411,7 @@ MonoBehaviour:
     \uC5B4\uB5A1\uD558\uC9C0!!!!!! \uC808\uB300 \uC5C4\uB9C8\uC5D0\uAC8C \uB4E4\uCF1C\uC120
     \uC548\uB3FC...'"
   currentStateNum: 0
+  isEndSurvey: 0
 --- !u!4 &6672509603038542911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5257566711980314896, guid: e5fd2d1b9dae1954d91afba05566eba2,
@@ -3509,6 +3528,7 @@ MonoBehaviour:
     \uB958\uC5D0\uAC8C \uB0B4\uAC00 \uBC14\uB78C\uD540 \uC0AC\uC2E4\uC744 \uB4E4\uD0A4\uAE34
     \uD588\uC9C0\uB9CC.. \uC544\uBB34\uB3C4 \uBAA8\uB97C\uAC70\uC57C.. \uBB34\uC11C\uC6CC..'"
   currentStateNum: 0
+  isEndSurvey: 0
 --- !u!1001 &7534770360831772767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3721,6 +3741,7 @@ MonoBehaviour:
     \uC9DC\uC99D\uB098\uC11C \uD55C\uB300 \uCE58\uAE34 \uD588\uB294\uB370.. \uC544\uBB34\uB3C4
     \uBAA8\uB974\uACA0\uC9C0?'"
   currentStateNum: 0
+  isEndSurvey: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

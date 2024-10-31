@@ -15,6 +15,9 @@ public class InvestigationManager : MonoBehaviour
     [SerializeField] public bool isCheakedjLibrary;
     [SerializeField] public bool isCheakedRoom;
     [SerializeField] public bool isCheakedRoad;
+    [SerializeField] List<GameObject> SurveyState;
+
+    private Coroutine inves;
 
     // 싱글톤
     public static InvestigationManager Instance { get; private set; }
@@ -34,9 +37,33 @@ public class InvestigationManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        inves = StartCoroutine(EndSurveyCheak());
+    }
+
     void Update()
     {
         ClickDetection();
+    }
+
+    // 조사 마무리 체크
+    IEnumerator EndSurveyCheak()
+    {
+        SakuraState sk = SurveyState[0].GetComponent<SakuraState>();
+        HaruState hr = SurveyState[1].GetComponent<HaruState>();
+        KenjiState kj = SurveyState[2].GetComponent<KenjiState>();
+        while (true)
+        {
+            if(sk.isEndSurvey && hr.isEndSurvey && kj.isEndSurvey)
+            {
+                InvestigationUIManager.Instance.setAdviceText("모든 조사를 완료했습니다. 조사를 마치고 범인을 지목하세요.");
+                InvestigationUIManager.Instance.SetActiveBack();
+                Invoke(nameof(ClearUI), 6f);
+                StopCoroutine(inves);
+            }
+            yield return new WaitForSeconds(3f);    //3초마다 검사 
+        }
     }
 
     // 클릭 감지

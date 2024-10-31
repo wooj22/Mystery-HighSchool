@@ -11,12 +11,15 @@ public class HaruState : MonoBehaviour
         "이름 : 하루 \n 설명 : 전교 1등의 엄친아. 피해자와 소꿉친구이다. \n\n \'들켰어... 어떡하지!!!!!! 절대 엄마에게 들켜선 안돼...\'"
     };
     public int currentStateNum;
+    public bool isEndSurvey;
 
     private void Start()
     {
         currentStateNum = 0;
+        isEndSurvey = false;
     }
 
+    // 캐릭터 상태 변화
     public void StateActive()
     {
         if (InvestigationManager.Instance.isGetLighter)
@@ -26,6 +29,7 @@ public class HaruState : MonoBehaviour
         if (InvestigationManager.Instance.isCheakedRoad)
         {
             currentStateNum = 2;
+            isEndSurvey = true;
         }
         InvestigationUIManager.Instance.setCharctorText(stateTexts[currentStateNum]);
     }

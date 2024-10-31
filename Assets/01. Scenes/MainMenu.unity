@@ -740,6 +740,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 888956988}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SFX_Button
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &311689266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1202,6 +1214,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Tutorial
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 888956988}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SFX_Button
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &777377408
@@ -1807,7 +1831,8 @@ MonoBehaviour:
   sfxSource: {fileID: 888956985}
   bgmClip:
   - {fileID: 8300000, guid: 11963070041a34e98ae9b68c66c69b64, type: 3}
-  sfxClipList: []
+  sfxClipList:
+  - {fileID: 8300000, guid: 99348d26b121bdf40bca2ff30b000207, type: 3}
   fadeVolumeTime: 3
 --- !u!1001 &938351695
 PrefabInstance:

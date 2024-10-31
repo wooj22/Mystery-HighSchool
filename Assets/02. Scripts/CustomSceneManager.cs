@@ -8,6 +8,10 @@ public class CustomSceneManager : MonoBehaviour
     /// 씬 이동
     public void OnLoadSceneByName(string sceneName)
     {
+        if(sceneName == "Investigation") // 조사->메인 *게임매니저 Dondestroy안되어서 추가
+        {
+            setLastScene();
+        }
         SceneManager.LoadScene(sceneName);
     }
 
@@ -21,5 +25,10 @@ public class CustomSceneManager : MonoBehaviour
         Application.Quit();
 
         #endif
+    }
+    
+    public void setLastScene()
+    {
+        PlayerPrefs.SetInt("lastScene", 999);
     }
 }

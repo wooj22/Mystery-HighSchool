@@ -8,6 +8,7 @@ public class InvestigationUIManager : MonoBehaviour
     // UI
     [SerializeField] Text charactorDescription;
     [SerializeField] Text adviceText;
+    [SerializeField] GameObject backButton;
 
     // 싱글톤
     public static InvestigationUIManager Instance { get; private set; }
@@ -44,5 +45,11 @@ public class InvestigationUIManager : MonoBehaviour
     public void clearAdviceText()
     {
         adviceText.text = "";
+    }
+
+    // 메인화면 돌아가기 버튼
+    public void SetActiveBack()
+    {
+        backButton.SetActive(true);
     }
 }

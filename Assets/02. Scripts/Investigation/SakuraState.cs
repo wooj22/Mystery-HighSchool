@@ -10,12 +10,15 @@ public class SakuraState : MonoBehaviour
         "이름 : 사쿠라 \n 설명 : 피해자의 여자친구 \n\n \" \'오늘 학교 도서관에서 류에게 내가 바람핀 사실을 들키긴 했지만.. 아무도 모를거야.. 무서워..\'"
     };
     public int currentStateNum;
+    public bool isEndSurvey;
 
     private void Start()
     {
         currentStateNum = 0;
+        isEndSurvey = false;
     }
 
+    // 캐릭터 상태 변화
     public void StateActive()
     {
         if (InvestigationManager.Instance.isGetPhone)
@@ -25,6 +28,7 @@ public class SakuraState : MonoBehaviour
         if (InvestigationManager.Instance.isCheakedjLibrary)
         {
             currentStateNum = 2;
+            isEndSurvey = true;
         }
         InvestigationUIManager.Instance.setCharctorText(stateTexts[currentStateNum]);
     }
